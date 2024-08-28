@@ -1,13 +1,22 @@
-<div class="face-snap-card">
-<h2>{{ faceSnapInstance.title }}</h2>
-<p>{{ faceSnapInstance.description }}</p>
+<div class="face-snap-card" [ngClass]="{'snapped': snapped}">
+<h2>{{ faceSnapInstance.title | titlecase }} </h2>
+<p>{{ faceSnapInstance.description}}</p>
 <img [src]="faceSnapInstance.pictureUrl" [alt]="faceSnapInstance.title">
 
-<p>Mis en ligne le {{ faceSnapInstance.createdAt }}</p>
+<p> {{8542.5684 | number}} </p>
+
+@if (faceSnapInstance.location) {
+    <p> Location : {{faceSnapInstance.location}} </p>
+}
+@else {
+    <p> Unspecified location </p>
+}
+
+<p>Mis en ligne le {{ faceSnapInstance.createdAt | date: "d MMMM yyyy à HH:mm"}}</p>
 
 <p>
     <button (click)="onSnap()">{{snapButtonText}}</button>
-    🤌 {{faceSnapInstance.snaps}}
+    <span [ngStyle]="{'color': 'rgb(0, ' + faceSnapInstance.snaps + ', 0)'}"> 🤌 {{faceSnapInstance.snaps}} </span>
 </p> 
 </div>
 

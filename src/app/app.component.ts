@@ -10,28 +10,30 @@ import { FaceSnap } from './models/face-snap';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  mySnap!: FaceSnap;
-  my2ndSnap!: FaceSnap;
-  my3rdSnap!: FaceSnap;
+  mySnapArray!: FaceSnap[];
 
   ngOnInit(){
-    this.mySnap = new FaceSnap("Archibald",
+    this.mySnapArray = [
+      new FaceSnap("Archibald",
       "Il est archi chauve !",
       new Date (),
       0,
-      'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg');
+      'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg'),
 
-      this.my2ndSnap = new FaceSnap("Me",
-        "C'est moi !",
-        new Date (),
-        2,
-        'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg');
+      new FaceSnap("Me",
+      "C'est moi !",
+      new Date (),
+      100,
+      'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg'),
 
-        this.my3rdSnap = new FaceSnap("You",
-          "C'est toi !",
-          new Date (),
-          4,
-          'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg');
+      new FaceSnap("You",
+      "C'est toi !",
+      new Date (),
+      200,
+      'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg')
+    ];
+
+    this.mySnapArray[2].location = "À la mer";
   }
   
 }
