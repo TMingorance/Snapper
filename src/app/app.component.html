@@ -3,8 +3,10 @@
 </style>
 
 <main class="main">
-  
+ 
   @for(faceSnap of mySnapArray; track faceSnap.title){
   <app-face-snap [faceSnapInstance]="faceSnap"/>
 }
+  
+<!--<h1>{{ interval$ | async}}</h1>-->
 </main>
