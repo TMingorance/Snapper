@@ -1,1 +1,3 @@
-<p>face-snap-list works!</p>
+@for(faceSnap of frontFaceSnaps; track faceSnap.id){
+    <app-face-snap [faceSnapInstance]="faceSnap"/>
+  }

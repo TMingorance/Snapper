@@ -3,8 +3,8 @@
 </style>
 
 <main class="main">
-  
-  @for(faceSnap of mySnapArray; track faceSnap.title){
-  <app-face-snap [faceSnapInstance]="faceSnap"/>
-}
+
+  <app-header/>
+  <router-outlet/>
+
 </main>

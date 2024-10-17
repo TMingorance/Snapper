@@ -1,6 +1,7 @@
 <div class="face-snap-card" [ngClass]="{'snapped': snapped}">
 <h2>{{ faceSnapInstance.title | titlecase }} </h2>
-<p>{{ faceSnapInstance.description}}</p>
+
+<!--<p>{{ faceSnapInstance.description}}</p>
 <img [src]="faceSnapInstance.pictureUrl" [alt]="faceSnapInstance.title">
 
 <p> {{8542.5684 | number}} </p>
@@ -18,6 +19,10 @@
     <button (click)="onSnap()">{{snapButtonText}}</button>
     <span [ngStyle]="{'color': 'rgb(0, ' + faceSnapInstance.snaps + ', 0)'}"> 🤌 {{faceSnapInstance.snaps}} </span>
 </p> 
+
+-->
+
+<button (click)="onViewFaceSnap()">VIEW</button>
 </div>
 
 
