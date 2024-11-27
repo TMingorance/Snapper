@@ -1,0 +1,33 @@
+<div class="form-card">
+    <h2>Nouveau FaceSnap</h2>
+    <form [formGroup]="newSnapForm">
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input id="title" type="text" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" type="text" formControlName="description" rows="4">
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="pictureUrl">URL de l'image</label>
+            <input id="pictureUrl" type="text" formControlName="pictureUrl">
+        </div>
+        <div class="form-group">
+            <label for="location">Lieu</label>
+            <input id="location" type="text" formControlName="location">
+        </div>
+        <div class="action-buttons">
+            <button type="submit" (click)="onSubmitForm()">Créer</button>
+        </div>
+
+    </form>
+</div>
+
+@if(this.faceSnapPreview$ | async; as previewFaceSnap){
+<div class="face-snap-card">
+    <p class="preview-header">Aperçu</p>
+    <app-single-face-snap [faceSnapInstance] = "previewFaceSnap"/>
+</div>
+}

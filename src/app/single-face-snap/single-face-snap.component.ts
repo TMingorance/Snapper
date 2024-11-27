@@ -10,14 +10,16 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   imports: [RouterLink,
     NgStyle, NgClass, TitleCasePipe, DatePipe, PercentPipe, DecimalPipe, CurrencyPipe],
   templateUrl: './single-face-snap.component.html',
-  styleUrl: './single-face-snap.component.scss'
+  styleUrl: './single-face-snap.component.scss',
+  schemas: []
 })
 export class SingleFaceSnapComponent implements OnInit{
 
-  faceSnapInstance!: FaceSnap;
+  @Input() faceSnapInstance!: FaceSnap;
 
   snapped!: boolean;
   snapButtonText!: string;
+  preview!: boolean; //!This component is also used as preview when creating a new faceSnap
 
   constructor (private faceSnapsService: FaceSnapsService,
               private activatedRoute: ActivatedRoute
@@ -26,14 +28,19 @@ export class SingleFaceSnapComponent implements OnInit{
   ngOnInit(): void {
     this.snapped = false;
     this.snapButtonText = "Oh Snap!";
-
-    this.faceSnapInstance = this.faceSnapsService.findFaceSnap(this.activatedRoute.snapshot.params["id"]);
+    console.log("faceSnapInstance = " + this.faceSnapInstance);
+    if (this.faceSnapInstance === undefined){
+      this.faceSnapInstance = this.faceSnapsService.findFaceSnap(this.activatedRoute.snapshot.params["id"]);
+    }
+    this.preview = this.faceSnapInstance.id === "0";
   }
 
   onSnap(): void {
-    this.faceSnapsService.SnapActionOnFaceSnap(this.faceSnapInstance.id, this.snapped ? 'unsnap' : 'snap');
-    this.snapped = !this.snapped;
-    this.changeSnapText();
+    if (!this.preview){//if the faceSnap is not a preview, else : the button does nothing
+      this.faceSnapsService.SnapActionOnFaceSnap(this.faceSnapInstance.id, this.snapped ? 'unsnap' : 'snap');
+      this.snapped = !this.snapped;
+      this.changeSnapText();
+    }
   }
 
   changeSnapText(): void{

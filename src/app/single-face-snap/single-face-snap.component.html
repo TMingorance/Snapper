@@ -11,13 +11,14 @@
     }
     
     <p>Mis en ligne le {{ faceSnapInstance.createdAt | date: "d MMMM yyyy à HH:mm"}}</p>
-    
-    <p>
-        <button (click)="onSnap()">{{snapButtonText}}</button>
-        <span [ngStyle]="{'color': 'rgb(0, ' + faceSnapInstance.snaps + ', 0)'}"> 🤌 {{faceSnapInstance.snaps}} </span>
-    </p> 
+    @if(!this.preview){
+        <p>
+            <button (click)="onSnap()">{{snapButtonText}}</button>
+            <span [ngStyle]="{'color': 'rgb(0, ' + faceSnapInstance.snaps + ', 0)'}"> 🤌 {{faceSnapInstance.snaps}} </span>
+        </p> 
 
-    <button routerLink="/facesnaps">BACK</button>
+        <button routerLink="/facesnaps">BACK</button>
+    }
     </div>
     
     
