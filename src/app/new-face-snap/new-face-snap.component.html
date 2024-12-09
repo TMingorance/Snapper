@@ -19,7 +19,7 @@
             <input id="location" type="text" formControlName="location">
         </div>
         <div class="action-buttons">
-            <button type="submit" (click)="onSubmitForm()">Créer</button>
+            <button type="submit" (click)="onSubmitForm()" [disabled]="this.newSnapForm.invalid">Créer</button>
         </div>
 
     </form>
@@ -28,6 +28,6 @@
 @if(this.faceSnapPreview$ | async; as previewFaceSnap){
 <div class="face-snap-card">
     <p class="preview-header">Aperçu</p>
-    <app-single-face-snap [faceSnapInstance] = "previewFaceSnap"/>
+    <app-single-face-snap [faceSnapPreview] = "previewFaceSnap"/>
 </div>
 }

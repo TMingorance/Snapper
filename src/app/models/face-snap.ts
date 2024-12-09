@@ -14,12 +14,12 @@ export class FaceSnap{
         this.id = crypto.randomUUID().substring(0, 8);
     }
 
-    withLocation(location: string): FaceSnap {
+    withLocation(location: string | undefined): FaceSnap {
         this.location = location;
         return this;
     }
 
-    incrementSnaps():void{
+        incrementSnaps():void{
         this.snaps ++;
         //possibly some other action
     }

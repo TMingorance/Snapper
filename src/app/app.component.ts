@@ -3,6 +3,7 @@ import { HeaderComponent } from "./header/header.component"
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { interval, of, concatMap, mergeMap, delay, exhaustMap, map, switchMap, take, tap, Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
